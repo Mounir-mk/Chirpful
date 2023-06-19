@@ -1,5 +1,6 @@
 import { Fragment } from "react";
 import BottomNavBar from "../components/BottomNavBar";
+import Header from "../components/Header";
 
 export default function NonAuthPagesLayout({
   children, // will be a page or nested layout
@@ -8,6 +9,7 @@ export default function NonAuthPagesLayout({
 }) {
   return (
     <Fragment>
+      <Header />
       {children}
       <BottomNavBar />
     </Fragment>
