@@ -16,10 +16,12 @@ function SignUp() {
             <IoLogoTwitter />S{"'"}inscrire avec Twitter
           </button>
           <div className="divider">OU</div>
-          <button className="btn">Créer un compte</button>
+          <button className="btn">
+            <Link href="/auth/create-account">Créer un compte</Link>
+          </button>
           <p>
             Vous avez déjà un compte ?{" "}
-            <Link href="/auth/create-account" className="text-blue-100">
+            <Link href="/auth/sign-in" className="text-slate-900 font-bold">
               Connectez-vous
             </Link>
           </p>
