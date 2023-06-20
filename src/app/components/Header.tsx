@@ -4,7 +4,7 @@ import React, { useEffect, useRef } from "react";
 import logo from "../assets/logo/logo-focus.png";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { IoCloseSharp } from "react-icons/io5";
+import { IoCloseSharp, IoSearchOutline } from "react-icons/io5";
 
 function Header() {
   const pathname = usePathname();
@@ -73,6 +73,34 @@ function Header() {
       </div>
       {pathname === "/" && (
         <Image src={logo} alt="logo" width={50} height={50} />
+      )}
+      {pathname === "/search" && (
+        <div className="join ml-4">
+          <button className="btn btn-sm btn-ghost btn-disabled join-item">
+            <IoSearchOutline className="w-6 h-6" />
+          </button>
+          <input
+            className="input input-bordered input-sm join-item"
+            placeholder="Search..."
+          />
+        </div>
+      )}
+      {pathname === "/notifications" && (
+        <h1 className="font-bold">Notifications</h1>
+      )}
+      {pathname === "/messages" && (
+        <div className="flex flex-col justify-center items-center">
+          <h1 className="font-bold">Messages</h1>
+          <div className="join ml-4">
+            <button className="btn btn-sm btn-ghost btn-disabled join-item">
+              <IoSearchOutline className="w-6 h-6" />
+            </button>
+            <input
+              className="input input-bordered input-sm join-item"
+              placeholder="Search..."
+            />
+          </div>
+        </div>
       )}
     </header>
   );
