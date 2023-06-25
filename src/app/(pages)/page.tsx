@@ -1,5 +1,5 @@
 import CustomTweetFeed from "../components/CustomTweetFeed";
-import Tweet from "../components/Tweet";
+import Tweet from "../components/Tweet/Tweet";
 
 export default function Home() {
   return (

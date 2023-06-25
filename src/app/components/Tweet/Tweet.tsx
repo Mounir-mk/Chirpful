@@ -1,11 +1,7 @@
 import React from "react";
-import {
-  IoEllipsisHorizontalSharp,
-  IoChatboxOutline,
-  IoShareSocialOutline,
-  IoShareOutline,
-  IoHeartOutline,
-} from "react-icons/io5";
+import { IoShareSocialOutline, IoHeartOutline } from "react-icons/io5";
+import TweetSettings from "./TweetSettings";
+import TweetResponse from "./TweetResponse";
 
 function Tweet() {
   const name = "John Doe";
@@ -28,17 +24,12 @@ function Tweet() {
               : "@" + username}
           </p>
           <p className="text-sm font-light">19 juin</p>
-          <button className="btn btn-ghost btn-sm rounded-btn">
-            <IoEllipsisHorizontalSharp />
-          </button>
+          <TweetSettings />
         </div>
         <p>If a dog chews shoes whose shoes does he choose?</p>
         <img src="https://placehold.co/600x400" alt="placeholder" />
-        <div className="card-actions">
-          <button className="btn btn-ghost btn-sm rounded-btn">
-            <IoChatboxOutline />
-            <p className="font-light text-sm">1456</p>
-          </button>
+        <div className="card-actions justify-center">
+          <TweetResponse />
           <button className="btn btn-ghost btn-sm rounded-btn">
             <IoShareSocialOutline />
             <p className="font-light text-sm">258</p>
@@ -46,9 +37,6 @@ function Tweet() {
           <button className="btn btn-ghost btn-sm rounded-btn">
             <IoHeartOutline />
             <p className="font-light text-sm">15896</p>
-          </button>
-          <button className="btn btn-ghost btn-sm rounded-btn">
-            <IoShareOutline />
           </button>
         </div>
       </div>
