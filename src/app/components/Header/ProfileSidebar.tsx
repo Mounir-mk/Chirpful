@@ -7,6 +7,7 @@ import {
   IoAddCircleOutline,
   IoPersonSharp,
 } from "react-icons/io5";
+import { useOnClickOutside } from "usehooks-ts";
 
 interface ProfileSidebarProps {
   isDrawerOpen: boolean;
@@ -17,8 +18,13 @@ function ProfileSidebar({
   isDrawerOpen,
   setIsDrawerOpen,
 }: ProfileSidebarProps) {
+  const ref = React.useRef(null);
+  useOnClickOutside(ref, () => {
+    setIsDrawerOpen(false);
+  });
   return (
     <section
+      ref={ref}
       className={clsx(
         "fixed top-0 left-0 flex flex-col h-screen w-80 text-base-content bg-base-100 transition-all duration-300 z-40 p-4 shadow-2xl",
         {

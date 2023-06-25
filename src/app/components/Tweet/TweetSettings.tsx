@@ -19,7 +19,7 @@ function TweetSettings() {
       >
         <IoEllipsisHorizontalSharp />
       </button>
-      <Modal isModalOpen={isModalOpen}>
+      <Modal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}>
         <button className="btn btn-ghost justify-start">
           <IoPersonRemove className="w-6 h-6" />
           Se désabonner de @johndoe

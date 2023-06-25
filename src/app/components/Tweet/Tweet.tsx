@@ -1,7 +1,8 @@
 import React from "react";
-import { IoShareSocialOutline, IoHeartOutline } from "react-icons/io5";
+import { IoHeartOutline } from "react-icons/io5";
 import TweetSettings from "./TweetSettings";
 import TweetResponse from "./TweetResponse";
+import Retweet from "./Retweet";
 
 function Tweet() {
   const name = "John Doe";
@@ -30,10 +31,7 @@ function Tweet() {
         <img src="https://placehold.co/600x400" alt="placeholder" />
         <div className="card-actions justify-center">
           <TweetResponse />
-          <button className="btn btn-ghost btn-sm rounded-btn">
-            <IoShareSocialOutline />
-            <p className="font-light text-sm">258</p>
-          </button>
+          <Retweet />
           <button className="btn btn-ghost btn-sm rounded-btn">
             <IoHeartOutline />
             <p className="font-light text-sm">15896</p>
