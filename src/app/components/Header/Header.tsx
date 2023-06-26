@@ -41,7 +41,9 @@ function Header() {
           {
             "-translate-y-full": isScrolled && window.innerWidth < 768,
             "translate-y-0": !isScrolled && window.innerWidth < 768,
-            "md:hidden": pathname === "/",
+            "md:hidden": !["/search", "/notifications", "/messages"].includes(
+              pathname
+            ),
           }
         )}
       >
