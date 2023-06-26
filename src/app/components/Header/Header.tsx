@@ -39,8 +39,8 @@ function Header() {
           "fixed inset-0 h-14 flex justify-center items-center z-30 bg-base-100 transition-all duration-300",
           "md:h-24",
           {
-            "-translate-y-full": isScrolled || window.innerWidth < 768,
-            "translate-y-0": !isScrolled,
+            "-translate-y-full": isScrolled && window.innerWidth < 768,
+            "translate-y-0": !isScrolled && window.innerWidth < 768,
             "md:hidden": pathname === "/",
           }
         )}
