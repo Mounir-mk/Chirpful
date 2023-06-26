@@ -9,8 +9,10 @@ export default function NonAuthPagesLayout({
 }) {
   return (
     <Fragment>
-      <Header />
-      {children}
+      <div className="md:max-w-screen-lg md:mx-auto md:flex md:gap-4">
+        <Header />
+        {children}
+      </div>
       <BottomNavBar />
     </Fragment>
   );

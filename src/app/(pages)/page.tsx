@@ -3,7 +3,7 @@ import Tweet from "../components/Tweet/Tweet";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center gap-3 mt-14">
+    <main className="flex min-h-screen flex-col items-center gap-3">
       <CustomTweetFeed />
       <section
         id="tweet-feed"

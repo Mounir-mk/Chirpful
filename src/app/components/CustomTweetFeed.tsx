@@ -1,11 +1,18 @@
 "use client";
 
 import React, { useState } from "react";
+import { usePathname } from "next/navigation";
+import { clsx } from "clsx";
 
 function CustomTweetFeed() {
   const [tab, setTab] = useState("global");
   return (
-    <section id="tabs" className="flex flex-col items-center w-full mt-6">
+    <section
+      id="tabs"
+      className={clsx("flex flex-col items-center w-full mt-14", {
+        "md:mt-4": usePathname() === "/",
+      })}
+    >
       <div className="tabs">
         <button
           onClick={() => setTab("global")}

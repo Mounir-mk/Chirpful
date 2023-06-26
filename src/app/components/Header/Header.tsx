@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import logo from "../../assets/logo/logo-focus.png";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -33,40 +33,32 @@ function Header() {
   }, []);
 
   return (
-    <header
-      className={clsx(
-        "fixed inset-0 h-14 flex justify-center items-center z-30 bg-base-100 transition-all duration-300",
-        {
-          "-translate-y-full": isScrolled,
-          "translate-y-0": !isScrolled,
-        }
-      )}
-    >
-      <ProfileSidebar
-        isDrawerOpen={isDrawerOpen}
-        setIsDrawerOpen={setIsDrawerOpen}
-      />
-      <MenuIcon isDrawerOpen={isDrawerOpen} setIsDrawerOpen={setIsDrawerOpen} />
-      {pathname === "/" && (
-        <Image src={logo} alt="logo" width={50} height={50} />
-      )}
-      {pathname === "/search" && (
-        <div className="join ml-4">
-          <button className="btn btn-sm btn-ghost btn-disabled join-item">
-            <IoSearchOutline className="w-6 h-6" />
-          </button>
-          <input
-            className="input input-bordered input-sm join-item"
-            placeholder="Search..."
+    <>
+      <header
+        className={clsx(
+          "fixed inset-0 h-14 flex justify-center items-center z-30 bg-base-100 transition-all duration-300",
+          "md:h-24",
+          {
+            "-translate-y-full": isScrolled || window.innerWidth < 768,
+            "translate-y-0": !isScrolled,
+            "md:hidden": pathname === "/",
+          }
+        )}
+      >
+        <MenuIcon
+          isDrawerOpen={isDrawerOpen}
+          setIsDrawerOpen={setIsDrawerOpen}
+        />
+        {pathname === "/" && (
+          <Image
+            src={logo}
+            alt="logo"
+            width={50}
+            height={50}
+            className="md:hidden"
           />
-        </div>
-      )}
-      {pathname === "/notifications" && (
-        <h1 className="font-bold">Notifications</h1>
-      )}
-      {pathname === "/messages" && (
-        <div className="flex flex-col justify-center items-center">
-          <h1 className="font-bold">Messages</h1>
+        )}
+        {pathname === "/search" && (
           <div className="join ml-4">
             <button className="btn btn-sm btn-ghost btn-disabled join-item">
               <IoSearchOutline className="w-6 h-6" />
@@ -76,9 +68,30 @@ function Header() {
               placeholder="Search..."
             />
           </div>
-        </div>
-      )}
-    </header>
+        )}
+        {pathname === "/notifications" && (
+          <h1 className="font-bold">Notifications</h1>
+        )}
+        {pathname === "/messages" && (
+          <div className="flex flex-col justify-center items-center">
+            <h1 className="font-bold">Messages</h1>
+            <div className="join ml-4">
+              <button className="btn btn-sm btn-ghost btn-disabled join-item">
+                <IoSearchOutline className="w-6 h-6" />
+              </button>
+              <input
+                className="input input-bordered input-sm join-item"
+                placeholder="Search..."
+              />
+            </div>
+          </div>
+        )}
+      </header>
+      <ProfileSidebar
+        isDrawerOpen={isDrawerOpen}
+        setIsDrawerOpen={setIsDrawerOpen}
+      />
+    </>
   );
 }
 
